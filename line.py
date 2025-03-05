@@ -11,7 +11,5 @@ class Line():
     def draw(self, canvas: Canvas, color: str = None):
         if color is None:
             color = self.color
-        else:
-            self.color = color
 
         canvas.create_line(*self.start.coord(), *self.end.coord(), fill=color, width=self.width)

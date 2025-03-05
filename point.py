@@ -3,6 +3,12 @@ class Point:
         self.x = x
         self.y = y
     
+    def __repr__(self):
+        return f"Point({self.x}, {self.y})"
+    
+    def __eq__(self, value: "Point"):
+        return self.x == value.x and self.y == value.y
+    
     def coord(self) -> tuple[float, float]: return (self.x, self.y)
         
     def __add__(self, other) -> "Point":

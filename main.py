@@ -1,18 +1,17 @@
 from window import Window
-from line import Line
 from point import Point
 from maze import Maze
 from cell import WallType
+from constants import *
 
 def main():
-    win = Window(800, 600)
-    win.draw_line(Line(Point(10, 10), Point(790, 10)))
-    win.draw_line(Line(Point(790, 10), Point(790, 590)))
-    win.draw_line(Line(Point(790, 590), Point(10, 590)))
-    win.draw_line(Line(Point(10, 590), Point(10, 10)))
-    grid = Maze(win, 30, 20, Point(12, 12), 25)    
-    grid.draw()
-    grid._grid[1][1].draw_move(WallType.RIGHT)
+    win = Window(*WINDOW_SIZE)
+    columns = 30
+    rows = 20
+    size = min([(WINDOW_SIZE[0] - 10) / columns, (WINDOW_SIZE[1] - 10) / rows])
+    grid = Maze(win, 30, 20, Point(5, 5), size)    
+    grid.draw_all()
+    #grid._cells[1][1].draw_move(WallType.RIGHT)
     win.wait_for_close()
 
 
